@@ -1,0 +1,4 @@
+--find-links wheelhouse
+django >= 3.1.3
+pillow
+django-allauth

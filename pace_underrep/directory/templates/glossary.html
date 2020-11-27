@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block head %}
+{% endblock %}
+{% block content %}
+
+<h2>Glossary</h2>
+
+    <div class="info">
+
+        <p>The following glossary contains both terms specific to the quizbowl community and identities from the larger world that you might encounter in our directory. Labels, especially ones that concern identities, can have different meanings across different groups and times. We have tried to anticipate the most frequently-encountered terms, and we welcome any suggestions for new entries or revisions to existing ones.</p>
+
+        <table class="table">
+            <th>Word</th>
+            <th>Meaning</th>
+            {% for definition in definitions %}
+                <tr>
+                    <td>{{ definition.word }}</td>
+                    <td>{{ definition.definition }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+
+
+{% endblock %}
