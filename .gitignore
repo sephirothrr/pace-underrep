@@ -1,0 +1,14 @@
+/venv/
+/pace_underrep/db.sqlite3
+.idea/.gitignore
+.idea/inspectionProfiles/
+.idea/jsLibraryMappings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/pace_underrep.iml
+.idea/vcs.xml
+__pycache__/
+pace_underrep/__pycache__/
+pace_underrep/directory/__pycache__/
+pace_underrep/directory/migrations/__pycache__/
+/pace_underrep/directory/migrations/

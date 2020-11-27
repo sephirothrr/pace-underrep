@@ -46,20 +46,4 @@ urlpatterns = [
     path('privacy', views.TemplateView.as_view(template_name='privacy.html'), name='privacy'),
     path('contact', views.TemplateView.as_view(template_name='contact.html'), name='contact'),
     path('profile', views.TemplateView.as_view(template_name='profile.html'), name='profile'),
-    # path('accounts/register/', views.register,name='register'),
-    # path('accounts/login/',
-    #      LoginView.as_view
-    #      (template_name='login.html',
-    #       authentication_form=forms.BootstrapAuthenticationForm,
-    #       extra_context=
-    #       {
-    #           'title': 'Log in',
-    #           'year': datetime.now().year,
-    #       }),
-    #      name='login'),
-    # path('accounts/reset/',
-    #      PasswordResetView.as_view
-    #      (success_url='/accounts/login/', ),
-    #      name='reset', ),
-    # path('logout/', LogoutView.as_view(next_page='/'), name='logout'),
 ]
