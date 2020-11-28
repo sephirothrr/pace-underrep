@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 from pathlib import Path
 
+#for dev only
+import django_heroku
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 
@@ -27,7 +30,11 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'jygk_2qoj%*^*ts3(00l66-1st*0(h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'pace-underrep.azurewebsites.net']
+
+#SECURE_SSL_REDIRECT = not DEBUG
+SESSION_COOKIE_SECURE = not DEBUG
+CSRF_COOKIE_SECURE = not DEBUG
 
 
 # Application definition
@@ -140,5 +147,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, '/static/')
 STATIC_URL = '/static/'
+
+django_heroku.settings(locals())

@@ -47,5 +47,11 @@ class SignUpForm(ModelForm, authforms.SignupForm):
         fields = ['email', 'date_of_birth']
 
 
+class ProfileForm(ModelForm):
+    model = DirUser
+
+    fields = []
+
+
 class ResetForm(PasswordResetForm):
     pass
