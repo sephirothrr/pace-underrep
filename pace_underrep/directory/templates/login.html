@@ -1,5 +1,4 @@
 {% extends "layout.html" %}
-
 {% block content %}
 
     <h2>Log in | <a href={%  url 'account_signup' %}>Sign Up</a> </h2>
@@ -12,13 +11,19 @@
                 <div class="form-group">
                     <label for="id_username" class="col-md-2 control-label">Email Address</label>
                     <div class="col-md-10">
-                        {{ form.username }}
+                        {{ form.login }}
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="id_password" class="col-md-2 control-label">Password</label>
                     <div class="col-md-10">
                         {{ form.password }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="id_remember" class="col-md-2 control-label">Remember me</label>
+                    <div class="col-md-10">
+                        {{ form.remember }}
                     </div>
                 </div>
                 <div class="form-group">
@@ -40,8 +45,15 @@
 
 
 {% block scripts %}
-
-    {% load static %}
+<script type="text/javascript">
+  // Load jquery straight from the cdn for this page.
+  $(function() {
+    // We need some mappings for Providers names from AllAuth to the icon class names.
+  $('#id_login').addClass('form-control');
+  $('#id_password').addClass('form-control');
+  });
+</script>
+{% load static %}
 <script src="{% static 'app/scripts/jquery.validate.min.js' %}"></script>
 
 {% endblock %}

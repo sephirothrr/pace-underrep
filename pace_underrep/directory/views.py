@@ -4,22 +4,12 @@ from django.http import HttpResponse
 from django.http import HttpRequest
 from django.shortcuts import render
 from django.views import View
-from django.views.generic import TemplateView
-
+from django.views.generic import TemplateView, CreateView
+from django.utils.translation import gettext, gettext_lazy as _
 from pace_underrep.directory import models, forms
 
 
-class SignupView(View):
-    pass
-
-def signup(request):
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'signup.html',
-        {
-            'title': 'Register',
-            'year': datetime.now().year,
-            'forms': forms.SignUpForm
-        }
-    )
+class SignupView(CreateView):
+    form_class = forms.SignUpForm
+    success_url = _('/accounts/login')
+    template_name = 'signup.html'
