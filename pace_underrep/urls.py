@@ -16,10 +16,12 @@ Including another URLconf
 import allauth.account.views as authviews
 import allauth.account.forms as authforms
 from django.contrib import admin
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView
 from django.urls import path, include
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, DetailView
 from pace_underrep.directory import views, models, forms
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -42,5 +44,5 @@ urlpatterns = [
         ), name='directory'),
     path('privacy', TemplateView.as_view(template_name='privacy.html'), name='privacy'),
     path('contact', TemplateView.as_view(template_name='contact.html'), name='contact'),
-    path('profile', TemplateView.as_view(template_name='profile.html'), name='profile'),
+    path('profile', login_required(DetailView.as_view(model=models.DirUser, template_name='profile.html')), name='profile'),
 ]
